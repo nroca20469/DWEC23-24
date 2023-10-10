@@ -111,3 +111,35 @@ for(let i = 0; i < 5; i++){
     console.log(i);
 }
 
+
+
+//09/10/2023
+//FECHAS
+let parrafo = document.getElementById("fecha");  
+//parrafo.innerHTML = "Hola";  //Mostrara por pantalla el string hola por la propiedad innerHTML
+
+//new Date();
+//new Date(milisegundos);
+//new Date(fechaString);
+//new Date(año, mes, dia, horas, minutos, segundo, milisegundos);
+
+//parrafo.innerHTML = Date();
+
+let fecha = new Date(92500000); //En milisegundos
+fecha = new Date('12/15/2023');  //En string  , formato corto
+fecha = new Date('Aug 16 2000');   //Formato largo
+fecha = new Date('Wed Aug 16 2000 00:00:00 GMT+0200 (hora de verano de Europa central)');  //Formato completo
+fecha = new Date('2003-08-25');  //Formato ascii
+fecha = new Date(70,11,29,15,15,0,0);
+
+
+//Metodos
+parrafo.innerHTML = fecha.getDate();          //Dia del mes 1-31
+parrafo.innerHTML = fecha.getDay();           //Dia de la semana en formato numerico 0-6
+parrafo.innerHTML = fecha.getFullYear();      //Obtiene el anyo 
+parrafo.innerHTML = fecha.getHours();         //Obtiene las horas
+parrafo.innerHTML = fecha.getMilliseconds();  //Obtiene los milisegiundos
+parrafo.innerHTML = fecha.getMinutes();       //Obtiene los minutos
+parrafo.innerHTML = fecha.getMonth();         //Obtiene el mes(numerico)
+parrafo.innerHTML = fecha.getSeconds();       //Obtiene los segundos
+parrafo.innerHTML = fecha.getTime();          //Obtiene el numero de milisegundos desde 01-01-1970 i 1h(aprox)
