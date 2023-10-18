@@ -421,3 +421,5 @@ Web.prototype.miFunction = function() {
 }
 
 console.log(unaWeb.visitas);
+
+//17/10/2023
