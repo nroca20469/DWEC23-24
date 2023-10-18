@@ -29,7 +29,7 @@ function Planeta() {
 
 //Crear array de toda la informacion a utilizar(5)
 const nombres = ["Mercurio", "Venus", "Marte", "Júpiter", "Saturno"];
-const distanciaDelSol = [58.0, 108, 228, 750, 1418];
+const distanciaDelSol = [1500.0, 108, 228, 750, 1418];
 const tamanoRelativo = [0.38, 0.95, 0.53, 11.2, 94.5];
 const fechaDesc = [1693, 1610, 1610, 1973, 1610];
 
@@ -48,15 +48,50 @@ for(let i = 0; i < arrayPlanetas.length; i++) {
         planetaX.fechaDescubrimiento = new Date('10/17/2023');
     }
     arrayPlanetas[i] = planetaX;
-    
 }    
+
 //Lectura de los planetas de forma orden del array
 console.log("   Array de planetas   ");
 for (let i = 0; i < arrayPlanetas.length; i++) {
-    console.log(arrayPlanetas[i].informacion());
+   console.log(arrayPlanetas[i].informacion());
     
 }
 
-console.log(arrayPlanetas);
+//console.log(arrayPlanetas);
 
-//FALTA ORDENARLOS
+//Ordenar planetas por distancia al sol
+let ordenar = function (arrayPlanetas1) {
+    /*let arrayPlanetaIn = new Array(5);
+    arrayPlanetaIn = arrayPlanetas[0];
+    let arrayDistancias = arrayPlanetaIn['distanciaSol'];
+    console.log(arrayDistancias);*/
+    let ordenado = new Array(5);
+   // console.log(arrayPlanetas.distanciaDelSol.sort());
+
+    for(let i = 1; i < (arrayPlanetas1.length); i++){
+        if(arrayPlanetas1[i].distanciaDelSol < arrayPlanetas1[i - 1].distanciaDelSol){
+            ordenado[i] = arrayPlanetas1[i];
+            ordenado[i - 1] = arrayPlanetas1[i - 1];
+            
+        } else if(arrayPlanetas1[i].distanciaDelSol > arrayPlanetas1[i - 1].distanciaDelSol){
+            ordenado[i] = arrayPlanetas1[i - 1];
+            ordenado[i - 1] = arrayPlanetas1[i];
+        } else if(arrayPlanetas == undefined){
+            console.log("null");
+            ordenado[i] = arrayPlanetas1[i];
+            ordenado[i - 1] = arrayPlanetas1[i - 1];
+        } 
+        console.log(arrayPlanetas1[i].distanciaDelSol);
+        console.log(arrayPlanetas1[i - 1].distanciaDelSol);
+    }
+    console.log(ordenado);
+    return ordenado;
+}
+
+let arrayOrdenado = ordenar(arrayPlanetas);
+
+console.log("   Array de planetas ordenados  ");
+for (let i = 0; i < arrayOrdenado.length; i++) {
+   console.log(arrayOrdenado[i]);
+    
+}
