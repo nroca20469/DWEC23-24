@@ -422,4 +422,93 @@ Web.prototype.miFunction = function() {
 
 console.log(unaWeb.visitas);
 
-//17/10/2023
+//23/10/2023 
+//CLASSES --> ES6 permite POO en JS.  --> class para crear clase
+class Persona {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+
+    saludar(){
+        console.log(`Hola soy ${this.nombre}.`);
+    }
+}
+
+const joan = new Persona("Joan");
+console.log(joan);
+joan.saludar();
+
+
+//HERENCIA
+class Empleado extends Persona{
+    constructor(nombre, salario){
+        super(nombre);
+        this.salario = salario;
+    }
+
+    trabajar(){
+       console.log(`${this.nombre} esta trabajando.`); 
+    }
+}
+
+const maria = new Empleado("Maria", 300000);
+console.log(maria);
+maria.trabajar();
+maria.saludar();
+
+//Simbolos --> los simbolos son una nueva classe de datos introducida por ES6. --> son valores unicos e inmutables
+            // se pueden utilizar como identificadores de propiedades de objetos
+
+const id = Symbol("id");
+const persona = {
+    nombre: "Joan",
+    [id]: 1
+};
+
+console.log(persona[id]);
+
+//ITERADORES --> objetos que implementan el protocolo de iteracion en JS. Permiten recorrer i acceder a los elementos de una
+                //coleccion uno a uno
+
+const numeross = [1, 2, 3];
+const iterador = numeross[Symbol.iterator]();
+console.log(iterador.next());  //Done --> ha llegado al final?(false)
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+
+//SET --> Permite almacenar valores UNICOS de cualquier tipos. No permite duplicados y ofrece metodos para agregar,
+    //elimianr y verificar la existencia de elemetnos
+const setNumeros = new Set();
+setNumeros.add(1);
+setNumeros.add(2);
+setNumeros.add(3);
+
+console.log(setNumeros.has(2));  //Si esta en el array
+setNumeros.delete(2);  //Eliminar el numero 2
+console.log(setNumeros.has(2));
+
+console.log(setNumeros.size);
+console.log(setNumeros);
+
+const iterador2 = setNumeros[Symbol.iterator]();
+console.log(iterador2.next());
+console.log(iterador2.next());
+console.log(iterador2.next());
+
+//MAP --> Permite almacenar PARES clave-valor, donde cada clave es UNICA.
+    //Permite operaciones de busqueda, insercion y eliminacion
+
+const mapaNombres = new Map();
+mapaNombres.set("nombre", "Ana");
+mapaNombres.set("edad", 33);
+mapaNombres.set("profesion", "Desarrollador");
+
+console.log(mapaNombres.get("nombre"));
+console.log(mapaNombres.has("edad"));  // busca por key
+
+mapaNombres.delete("edad");
+console.log(mapaNombres.has("edad"));
+
+console.log(mapaNombres.size);
+console.log(mapaNombres);

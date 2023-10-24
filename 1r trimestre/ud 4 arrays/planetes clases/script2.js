@@ -15,40 +15,52 @@ Mostrar info de -->
 */
 
 //Crear constructor:
-function Planeta() {
-    this.nombre = "";
-    this.distanciaSol = "";
-    this.tamañoRelativoTierra = "";
-    this.fechaDescubrimiento = new Date();
-    this.informacion = function() {
-        return ("Nombre del planeta:  " + this.nombre + "\nDistancia del sol:  " + this.distanciaSol + "\nFecha del descubriemiento:  " + this.fechaDescubrimiento.getFullYear()); 
+
+class Planeta {
+    contructor(nombre, distanciaSol, tamañoRelativoTierra, fechaDescubrimiento){
+        this.nombre = nombre;
+        this.distanciaSol = distanciaSol;
+        this.tamañoRelativoTierra = tamañoRelativoTierra;
+        this.fechaDescubrimiento = fechaDescubrimiento;
     }
-    
+
+    informacion(){
+        console.log(`Nombre del planeta:  ${this.nombre} \nDistancia del sol:  ${this.distanciaSol} \nFecha del descubriemiento:  ${this.fechaDescubrimiento}. `); 
+    }
+
+
 }
-
-
 //Crear array de toda la informacion a utilizar(5)
 const nombres = ["Mercurio", "Venus", "Marte", "Júpiter", "Saturno"];
 const distanciaDelSol = [1500.0, 108, 228, 750, 1418];
 const tamanoRelativo = [0.38, 0.95, 0.53, 11.2, 94.5];
 const fechaDesc = [1693, 1610, 1610, 1973, 1610];
 
+
 //Crear array de Planetas
 let arrayPlanetas = new Array(5);
 
+
+
+
 //Creacion i dar propiedades a los planetas
 for(let i = 0; i < arrayPlanetas.length; i++) {
-    let planetaX = new Planeta();
-    planetaX.nombre = nombres[i];
-    planetaX.distanciaSol = distanciaDelSol[i];
-    planetaX.tamañoRelativoTierra = tamanoRelativo[i];
+    let fechaDescubrimiento;
+   
+    
+    
     if(fechaDesc[i] > 1970){
-        planetaX.fechaDescubrimiento = new Date("'" + fechaDesc[i] + "'");
+        fechaDescubrimiento = new Date("'" + fechaDesc[i] + "'");
     } else {
-        planetaX.fechaDescubrimiento = new Date('10/17/2023');
+        fechaDescubrimiento = new Date('10/23/2023');
     }
-    arrayPlanetas[i] = planetaX;
+  
 }    
+
+const planetaX = new Planeta("Marte", distanciaDelSol[0], tamanoRelativo[0], fechaDesc[0]);
+planetaX.informacion();
+
+/*
 
 //Lectura de los planetas de forma orden del array
 console.log("   Array de planetas   ");
@@ -64,4 +76,4 @@ let arrayOrdenado = arrayPlanetas.sort((a,b) => {
 
 for(let planetaY of arrayOrdenado){
     console.log(planetaY.informacion());
-}
+}*/

@@ -214,3 +214,6 @@ const todosNumerosPares = numeros.every((numero) => {
 });
 
 console.log(todosNumerosPares);
+
+
+//23/10/2023
