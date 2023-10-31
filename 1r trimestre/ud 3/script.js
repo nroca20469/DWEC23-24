@@ -1,4 +1,4 @@
-//ESTRUCTURAS DE CONTROL --> Se utilizan para controlar el flujo de un programa
+    //ESTRUCTURAS DE CONTROL --> Se utilizan para controlar el flujo de un programa
 
 //IF --> utiliza para ejecutar un bloque de codigo si se cumple una condicion() i el bloque{}
 let edad = 18;
