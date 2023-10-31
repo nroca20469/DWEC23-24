@@ -4,7 +4,7 @@ let arrayNumeros = new Array(4);  //Creamos un array para los numeros
 let intentos = 0;  //Numero de intentos
 let contadorRepetida = 0; //Contar las veces que se repite un numero
 
-while((numero > 1000 && numero < 10000) && intentos < 8){  //Assegurar  que el numero es de 4 cifras  --> I SI EMPIEZA POR 0??
+while((numero.length == 4) && intentos < 8){  //Assegurar  que el numero es de 4 cifras  --> I SI EMPIEZA POR 0??
    
     //Passar numero a un array
     let arrayNumerica =  [...numero];   // --> Passar a array
@@ -65,7 +65,7 @@ while((numero > 1000 && numero < 10000) && intentos < 8){  //Assegurar  que el n
 if(contadorRepetida > 1){   //Error de demasiadas letras repetidas(+2)
     let error = document.getElementById('textoError'); 
     error.innerHTML = "Su numero tiene mas de dos numeros repetidos";
-} else if(numero < 1000 || numero > 10000){   //Error en que el numero no es de 4 cifras
+} else if(numero.length != 4){   //Error en que el numero no es de 4 cifras
     let error = document.getElementById('textoError');
     error.innerHTML = "Su numero no es de 4 cifras, recarga la pagina para volver a intentar";
 } else if(intentos == 8) {  //Error por numero de iteraciones superada
