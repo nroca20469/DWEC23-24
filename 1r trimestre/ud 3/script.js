@@ -143,3 +143,66 @@ parrafo.innerHTML = fecha.getMinutes();       //Obtiene los minutos
 parrafo.innerHTML = fecha.getMonth();         //Obtiene el mes(numerico)
 parrafo.innerHTML = fecha.getSeconds();       //Obtiene los segundos
 parrafo.innerHTML = fecha.getTime();          //Obtiene el numero de milisegundos desde 01-01-1970 i 1h(aprox)
+
+
+//31/10/2023
+//FUNCIONES
+
+//COOKIES --> guardar informacion para q facilite la informacion, no perder carritos compra, nombre usuario, preferencias de web. Al cerrar el navegador i volver a encender guardamaos estas configuraciones 
+//Utilizacion:
+    // - Monitorizar la actividad de los usuarios
+    // - Mantener opciones de visualizacion o de aspecto para el usuario
+    // - Almacenar variables en el lado cliente
+    // - Identificacion o autenticacion
+    
+//Limites --> numero de cookies permitidas en un servidor y las soportadas en el navegadro
+//Creacion de cookies --> NO TRABAJAR
+// document.cookie = "usuario=Oreo";
+
+/*function crearCookie(usuarioCookie){   //Podemos indicar cuando queremos que caduque, a la hora de crearla
+    console.log('Creando cookie...');
+    usuarioCookie += ";expires=Mon, 6 Nov 2023 12:15:00 GMT";
+    document.cookie = "usuario=" + encodeURIComponent(usuarioCookie);   //Codificamos para guardar la informacion
+}
+
+
+function leerCookies(){
+    console.log('Leyendo las cookies...');
+    console.log(decodeURIComponent(document.cookie));  //Decodificamos el cookie para verlo claramente
+}*/
+
+
+//Como escribir i utilizar le localStorage
+//LOCAL STORAGE --> guardar en el navegador informacion, cadenas, arrays, u objetos
+//Aunque actualizemos navegador, siguen alli, si lo cerramos, enteoria no se borran
+
+//setItem --> guardar informacion con clave valor
+//getItem --> recuperar un item con la clave
+
+function guardarValores(){
+    console.log('Guardando valores en el local Storgage');  //F12 --> Aplicacion --> Local Storage
+    let usuariosWeb = ['Paco', 'Andreu', 'Joan'];
+    let guiliObjeto = {   //Guarda Object, object
+        Nombre: 'Paco',
+        Apellido:  "Pons"
+    };
+    localStorage.setItem("usuario" , JSON.stringify(usuariosWeb));  //JSON.stringify() --> se guarda cmo objeto 
+     
+}
+
+function leerValores(){
+    console.log('Leyendo valores del local Storage');
+    let valorUsuario = JSON.parse(localStorage.getItem("usuario"));  //devuelve un string  //JSON.parse() --> recuperar un objeto/array
+    console.log(valorUsuario == null ? "La clave no se ha encontrado" : valorUsuario);
+}
+
+
+// RECURSIVIDAD -->  cuando necessitamos llamar repetidamente una funcion sobre si misma --> condicion de salida 
+
+function factorial(numero) {
+    if (numero == 0) {
+        return 1;
+    }
+    return (numero * factorial(numero - 1));
+}
+
